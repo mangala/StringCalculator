@@ -35,4 +35,11 @@ RSpec.describe 'StringCalculator', '#add' do
       "25,24".should equal_to(49)
     end
   end
+
+  context '3 numbers' do
+    it 'returns 6 for 1,2,3' do
+      "1,2,3".should equal_to(6)
+    end
+
+  end
 end
