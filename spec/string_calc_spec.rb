@@ -46,7 +46,15 @@ RSpec.describe 'StringCalculator', '#add' do
     end
   end
 
-  it 'handle new line as delimeter' do
+  it 'scenario 1: handle new line as delimeter' do
     "2\n3".should equal_to(5)
+  end
+
+  it 'scenario 2: handle new line as delimeter' do
+    "2\n3, 5".should equal_to(10)
+  end
+
+  it 'scenario 3: handle multiple delimeter' do
+    "//;\n1;2;3".should equal_to(6)
   end
 end
