@@ -24,6 +24,10 @@ RSpec.describe 'StringCalculator', '#add' do
     it 'returns 21 for 21' do
       '21'.should equal_to(21)
     end
-
+  end
+  context '2 numbers' do
+    it 'returns 3 for 1,2' do
+      "1,2".should equal_to(3)
+    end
   end
 end
