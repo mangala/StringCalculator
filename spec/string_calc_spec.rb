@@ -41,5 +41,9 @@ RSpec.describe 'StringCalculator', '#add' do
       "1,2,3".should equal_to(6)
     end
 
+    it 'returns 1500 for 1000,200,300' do
+      "1000,200,300".should equal_to(1500)
+    end
+
   end
 end
