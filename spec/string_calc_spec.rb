@@ -44,6 +44,9 @@ RSpec.describe 'StringCalculator', '#add' do
     it 'returns 1500 for 1000,200,300' do
       "1000,200,300".should equal_to(1500)
     end
+  end
 
+  it 'handle new line as delimeter' do
+    "2\n3".should equal_to(5)
   end
 end
