@@ -1,7 +1,29 @@
 require "./lib/string_calculator.rb"
 
+
+RSpec::Matchers.define :equal_to do |expected|
+  match do |string|
+    string.extend(StringCalculator).add == expected
+  end
+end
+
 RSpec.describe 'StringCalculator', '#add' do
   it "returns 0 for empty string" do
-	"".extend(StringCalculator).add.should == 0
+    "".should equal_to(0)
+  end
+
+  context 'single number' do
+    it 'returns 1 for 1' do
+      '1'.should equal_to(1)
+    end
+
+    it 'returns 10 for 10' do
+      '10'.should equal_to(10)
+    end
+
+    it 'returns 21 for 21' do
+      '21'.should equal_to(21)
+    end
+
   end
 end
