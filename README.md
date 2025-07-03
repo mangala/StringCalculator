@@ -17,6 +17,7 @@ Things you may want to cover:
   4. execute the test suite - rspec  spec spec/string_calc_spec.rb
 
 
+
 * System dependencies
   Linux
 
