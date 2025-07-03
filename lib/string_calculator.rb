@@ -1,4 +1,3 @@
-# require 'pry'
 module StringCalculator
   def add
     return 0 if empty?
@@ -15,7 +14,7 @@ module StringCalculator
   end
 
   def numbers
-    gsub("\n",delimiter).split(delimiter).map{|n| n.to_i}
+    gsub("\n",delimiter).split(delimiter).map{|n| n.to_i}.select{|x| x<=1000}
   end
 
   def delimiter
