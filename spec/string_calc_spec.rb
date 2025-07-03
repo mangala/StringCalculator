@@ -1,6 +1,5 @@
 require "./lib/string_calculator.rb"
 
-
 RSpec::Matchers.define :equal_to do |expected|
   match do |string|
     string.extend(StringCalculator).add == expected
@@ -54,7 +53,7 @@ RSpec.describe 'StringCalculator', '#add' do
     "2\n3, 5".should equal_to(10)
   end
 
-  it 'scenario 3: handle multiple delimeter' do
+  it 'scenario 3: Support different delimiters' do
     "//;\n1;2;3".should equal_to(6)
   end
 
@@ -65,6 +64,16 @@ RSpec.describe 'StringCalculator', '#add' do
 
     it 'includes multiple negative numbers in the message' do
       lambda {'-10,20,-15,-23'.extend(StringCalculator).add }.should raise_exception('Negatives not allowed: -10,-15,-23')
+    end
+  end
+
+  context 'Ignore Numbers bigger than 1000' do
+    it 'returns 2 for 2,1001' do
+      '2,1001'.should equal_to(2)
+    end
+
+    it 'returns 1002 for 2,1000' do
+      '2,1000'.should equal_to(1002)
     end
   end
 end
