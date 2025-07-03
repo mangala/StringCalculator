@@ -57,4 +57,14 @@ RSpec.describe 'StringCalculator', '#add' do
   it 'scenario 3: handle multiple delimeter' do
     "//;\n1;2;3".should equal_to(6)
   end
+
+  context 'negative number' do
+    it 'raises an exception when negative numbers' do
+      lambda {"-1".extend(StringCalculator).add }.should raise_exception('Negatives not allowed')
+    end
+
+    it 'includes multiple negative numbers in the message' do
+      lambda {'-10,20,-15,-23'.extend(StringCalculator).add }.should raise_exception('Negatives not allowed: -10,-15,-23')
+    end
+  end
 end
